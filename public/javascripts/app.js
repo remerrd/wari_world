@@ -29,7 +29,7 @@ function mainCtrl($scope,$http){
 						console.log(newChoice);
 						$scope.currentChoice = nextChoice;
 						$scope.currentIndex = nextChoice._id;
-						$scope.apply();
+						
 					})
 				}
 
@@ -79,7 +79,7 @@ function mainCtrl($scope,$http){
 			data: JSON.stringify(newChoice),
 			contentType: "application/json; charset=utf-8",
 			success: function(data,textStatus) {
-		
+				$scope.getChoices();
 			}
 		})
 	}
