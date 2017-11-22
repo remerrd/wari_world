@@ -75,22 +75,36 @@ router.post('/world', function(req,res){
   var id = req.body.currentIndex
   var index = req.body.nextIndex
   
-  Choice.find({_id:id},function(err,me){
-    if (err) return console.error(err);
-    console.log("Updating...");
-    var new_me = me;
-    console.log(new_me);
 
-    console.log(new_me[0].paths[index])
-    new_me[0].paths[index] = new_choice._id;
-    console.log(new_me[0].paths[index])
+  if (id != "0"){
+    Choice.find({_id:id},function(err,me){
+      if (err) return console.error(err);
+      console.log("Updating...");
+      var new_me = me;
+      console.log(new_me);
 
-    Choice.updateOne({_id:id}, new_me[0], function(err, res){
-      console.log("FINALLY!");
-      console.log(res);
+      console.log(new_me[0].paths[index])
+      new_me[0].paths[index] = new_choice._id;
+      console.log(new_me[0].paths[index])
+
+      Choice.updateOne({_id:id}, new_me[0], function(err, res){
+        console.log("FINALLY!");
+        console.log(res);
+      })
+
     })
+  }
 
-  })
+  var new_choice = new Choice({
+    title: "The Crossroad",
+    desc: `You open your eyes and find yourself at a crossroad of two dirt roads
+    To the North you see a great mountain range with snow at the top of the peaks.
+    To the East you see a forest filled with life with a mysterious aura.
+    To the West you see a great Medieval Castle, with the farmland and homes along the path.
+    To the South you see a coastline with a large boat in the distance. Where would you like to go?`,
+    options: ["north","east","south","west"],
+    paths: ["0","0","0","0"],
+  });
 
   new_choice.save(function(err,post){
     if (err) return console.error(err);
