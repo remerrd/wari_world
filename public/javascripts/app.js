@@ -12,6 +12,12 @@ function mainCtrl($scope,$http){
 
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
+		if ($scope.input = "quit"){
+
+			$scope.getChoices();
+
+
+		}
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
 			if($scope.input.indexOf($scope.currentChoice.options[i]) > -1){
 				
@@ -52,6 +58,8 @@ function mainCtrl($scope,$http){
 			 $.getJSON('world/' + data, function(firstChoice){}).then(function(firstChoice){
 				console.log(firstChoice);
 				$scope.currentChoice = firstChoice;
+				$scope.nextIndex = "";
+				$scope.optionIndex = 0;
 				$scope.$apply()
 			})
 		})
