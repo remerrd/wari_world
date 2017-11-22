@@ -12,7 +12,7 @@ function mainCtrl($scope,$http){
 
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
-		if ($scope.input == "quit"){
+		if ($scope.input == "quit" || $scope.input == "end"){
 			$scope.getChoices();
 			$scope.input = '';
 		}
@@ -64,6 +64,10 @@ function mainCtrl($scope,$http){
 	$scope.postChoice = function(){
 		console.log("What path?: ")
 		console.log($scope.optionIndex);
+
+		if ($scope.options.length < 2){
+			$scope.options = "end";
+		}
 
 		var newChoice = {
 			title: $scope.title,
