@@ -58,6 +58,10 @@ router.post('/world', function(req,res){
   console.log(new_choice);
   console.log("id: " + req.body.currentIndex);
 
+  var id = req.body.currentIndex
+  
+  //Choice.updateOne({"_id" : id}, {})
+
 
   new_choice.save(function(err,post){
     if (err) return console.error(err);

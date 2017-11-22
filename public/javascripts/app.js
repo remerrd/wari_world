@@ -3,13 +3,17 @@ var app = window.angular.module('app', []);
 app.controller('mainCtrl',mainCtrl);
 
 function mainCtrl($scope,$http){
-	$scope.currentChoice = {};
+	$scope.currentChoice = false;
 	$scope.world = [];
 	$scope.currentIndex = "";
-	$scope.nextIndex = 0;
+	$scope.nextIndex = "";
 
 	$scope.chooseChoice = function(){
-
+		for (let i = 0; i < currentChoice.options.length; i++){
+			if ($scope.userInput.find(currentChoice.options[i]) != -1){
+				console.log(currentChoice.options[i]);
+			}
+		}
 	}
 	
 	$scope.getChoices = function(){
