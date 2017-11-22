@@ -17,10 +17,13 @@
             <h1>Wari-World</h1>
         </div>
 
-        <div class="row">
-            <div="col-sm-1"></div>
-            <div="col-sm-10">
-                <form ng-show="nextIndex=='0'" class="form-group" ng-submit="postChoice()" id="border">
+        <div class="row" id="border">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10" >
+                
+                <form  class="form-group" ng-submit="postChoice()">
+                    <h3>Create:</h3> <button class="btn" ng-click="createInfo()">Info/Help</button>
+                    <p>{{createInfo}}</p>
                     <h3>Title: </h3>
                     <input type="text" class="form-control" ng-model="title"/>
                     <h3>Situation: </h3>
@@ -28,15 +31,17 @@
                     <h3>Options: </h3>
                     <input type="text" class="form-control" ng-model="options"/>
                     <button type="submit" class="btn btn-warning">Create</button>
+
+                    <p>Or choose a different option from below!</p>
                 </form>
             </div>
             <div="col-sm-1"></div>
         </div>
 
-        <div class="row">
-            <div="col-sm-1"></div>
-            <div="col-sm-10">
-                <form ng-show="currentChoice" class="form-group" ng-submit="chooseChoice(userInput)" id="border">
+        <div class="row" id="border">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <form  class="form-group" ng-submit="chooseChoice(userInput)">
                     <h3>Title: {{currentChoice.title}}</h3>
                     <p>{{currentChoice.desc}} </p>
                     <p ng-repeat="option in currentChoice.options">{{option}}</p>
@@ -48,12 +53,32 @@
             <div="col-sm-1"></div>
         </div>
 
-        <div class="row">
-                <div="col-sm-1"></div>
-                <div="col-sm-10" ng-if="!currentChoice">
+        <div class="row" id="border">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10" ng-if="!currentChoice">
                     
-                    <h3></h3>
+                    <h2>Welcome to Wari-World!</h2>
 
+                    <p>This is a fantasy based text adventure, the players make choices in different situations to lead to different endings.</p>
+                    <p>The world is expanding, constantly growing based on players. </p>
+
+                    <h3>How It Works</h3>
+                    <p>Playing the Game:</p>
+                    <ol>
+                        <li>Read the situation</li>
+                        <li>Look at avaliable options</li>
+                        <li>Type in text with one of the option words</li>
+                        <li>If you get to a point that no one has been to, you start to create the world</li>
+                    </ol>
+
+                    <h3>Rules of Creation</h3>
+                    <ul>
+                        <li>Must be medievil fantasy based</li>
+                        <li>Must be family friendly</li>
+                    </ul>
+
+                    
+                    <p>I accept these rules and enter the world</p>
                     <button class="btn btn-Success" ng-click="getChoices()"> Accept/Enter </button>
 
                 </div>
