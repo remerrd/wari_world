@@ -13,10 +13,8 @@ function mainCtrl($scope,$http){
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
 		if ($scope.input == "quit"){
-
 			$scope.getChoices();
-
-
+			$scope.input = '';
 		}
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
 			if($scope.input.indexOf($scope.currentChoice.options[i]) > -1){
