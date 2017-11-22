@@ -80,24 +80,30 @@ router.get('/world/:choice',function(req,res){
 router.delete('/world/:choice',function(req,res){
   console.log("Deleting Choice");
 
+
+  var deleteRec = function(choice){
+    console.log("CHOICE" + choice);
+    for (let i = 0; i < choice.paths.length; i++){
+      console.log(i);
+      if (choice.paths[i] != 0){
+        var query = Choice.findById(id);
+          query.exec(function(err,next_choice){
+            if (err) return;
+            if (!next_choice) return;
+            deleteRec(next_choice);
+            }); 
+      }
+    }	
+  }
+
   deleteRec(req.choice);
+
+
+
   res.sendStatus(200);
 })
 
-var deleteRec = function(choice){
-    console.log("CHOICE" + choice);
-    for (let i = 0; i < choice.paths.length; i++){
-        console.log(i);
-	if (choice.paths[i] != 0){
-     	    var query = Choice.findById(id);
-	    query.exec(function(err,next_choice){
-		if (err) return;
-		if (!next_choice) return;
-		deleteRec(next_choice);
- 	    } 
-	}
-    }	
-}
+
 
 module.exports = router;
 
