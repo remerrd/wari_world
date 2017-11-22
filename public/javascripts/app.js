@@ -10,11 +10,10 @@ function mainCtrl($scope,$http){
 
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
-		console.log($scope.currentChoice);
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
 			if($scope.input.indexOf($scope.currentChoice.options[i]) > -1){
 				
-				console.log("this?" + $scope.currentChoice);
+				console.log($scope.currentChoice);
 
 				$scope.nextIndex = $scope.currentChoice.path[i];
 
@@ -49,7 +48,6 @@ function mainCtrl($scope,$http){
 			 $.getJSON('world/' + data, function(firstChoice){}).then(function(firstChoice){
 				console.log(firstChoice);
 				$scope.currentChoice = firstChoice;
-				$scope.apply();
 			})
 		})
 	}
