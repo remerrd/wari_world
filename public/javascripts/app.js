@@ -7,6 +7,7 @@ function mainCtrl($scope,$http){
 	$scope.world = [];
 	$scope.currentIndex = "";
 	$scope.nextIndex = "";
+	$scope.optionIndex = 0;
 	$scope.createInfo = "";
 
 	$scope.chooseChoice = function(){
@@ -19,7 +20,7 @@ function mainCtrl($scope,$http){
 				console.log($scope.currentChoice.paths[i]);
 				console.log("DONE!");
 
-				$scope.nextIndex = i;
+				$scope.optionIndex = i;
 
 				if ($scope.currentChoice.paths[i] == "0")
 				{
@@ -31,6 +32,7 @@ function mainCtrl($scope,$http){
 						$scope.currentChoice = nextChoice;
 						$scope.currentIndex = nextChoice._id;
 						$scope.nextIndex="";
+						$scope.optionIndex=0;
 						$scope.$apply()
 					});
 				}
@@ -64,7 +66,7 @@ function mainCtrl($scope,$http){
 			options: $scope.options.toLowerCase().split(','),
 			paths: [],
 			currentIndex: $scope.currentIndex,
-			nextIndex: $scope.nextIndex
+			nextIndex: $scope.optionIndex
 		};
 
 		for (let i = 0; i < newChoice.options.length;i++){
