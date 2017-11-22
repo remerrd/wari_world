@@ -76,6 +76,9 @@ router.post('/world', function(req,res){
   var nextId = req.body.nextIndex
   
   Choice.find({_id:id},function(err,me){
+    if (err) return;
+    console.log(me);
+
     for (let i = 0; i < me.paths.length; i++){
       if (i == nextIndex){
         me.paths[i] = new_choice._id;
