@@ -9,6 +9,7 @@ function mainCtrl($scope,$http){
 	$scope.nextIndex = "";
 	$scope.optionIndex = 0;
 	$scope.createInfo = "";
+	$scope.saveId = "";
 
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
@@ -46,24 +47,44 @@ function mainCtrl($scope,$http){
 		}
 	}
 	
-	$scope.getChoices = function(userInput){
-		$.getJSON('world',function(data){}).then(function(data){
-			console.log(data);
-			$scope.currentIndex = data;
+	$scope.getChoices = function(loadId){
+		$scope.saveId = loadId;
 
-			 $.getJSON('world/' + data, function(firstChoice){}).then(function(firstChoice){
-				console.log(firstChoice);
-				$scope.currentChoice = firstChoice;
+		console.log("Loading Id...")
+		console.log($scpoe.saveId);
+		
+		if ($scope.saveId == ""){
+			$.getJSON('world',function(data){}).then(function(data){
+				
+				console.log(data);
+				$scope.currentIndex = data;
+	
+				 $.getJSON('world/' + data, function(firstChoice){}).then(function(firstChoice){
+					console.log(firstChoice);
+					$scope.currentChoice = firstChoice;
+					$scope.nextIndex = "";
+					$scope.optionIndex = 0;
+					$scope.$apply()
+				})
+			})
+		}
+		else{
+			$scope.currentIndex = loadId;
+				$.getJSON('world/' + $scope.currentIndex, function(nextChoice){}).then(function(nextChoice){
+				console.log(nextChoice);
+				$scope.currentChoice = nextChoice;
 				$scope.nextIndex = "";
 				$scope.optionIndex = 0;
 				$scope.$apply()
 			})
-		})
+		}
+		
+		
 	}
 
 	$scope.postChoice = function(){
-		console.log("What path?: ")
-		console.log($scope.optionIndex);
+		//console.log("What path?: ")
+		//console.log($scope.optionIndex);
 
 		if ($scope.options.length < 2){
 			$scope.options = "end";
@@ -96,11 +117,11 @@ function mainCtrl($scope,$http){
 			data: JSON.stringify(newChoice),
 			contentType: "application/json; charset=utf-8",
 			success: function(data,textStatus) {
-				console.log("Posted")
+				//console.log("Posted")
 				$.getJSON('world/' + $scope.currentChoice._id, function(nextChoice){
 					$scope.currentChoice = nextChoice;
-					console.log("NEXT CHOICE");
-					console.log($scope.currentChoice);
+					//console.log("NEXT CHOICE");
+					//console.log($scope.currentChoice);
 					$scope.chooseChoice;
 					$scope.$apply()
 				});

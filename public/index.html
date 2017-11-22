@@ -55,6 +55,7 @@
         <div ng-show="currentChoice" class="row" id="border">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
+                <p>Save Id: {{currentChoice._id}}</p>
                 <form  class="form-group" ng-submit="chooseChoice(userInput)">
                     <h3>{{currentChoice.title}}</h3>
                     <p>{{currentChoice.desc}}</p>
@@ -94,7 +95,11 @@
                     
                     <p>By clicking Accept, I agree to play the game according to these rules.</p>
                     <p>Type "quit" at anytime to restart</p>
-                    <button class="btn btn-Success" ng-click="getChoices()"> Accept </button>
+
+                    <button class="btn btn-Success" ng-click="getChoices(saveId)"> Accept </button>
+                    <p></p>
+                    <p>Load Id: (copy the id above the choice and put it here to load a past adventure)</p>
+                    <input type="text" class="form-control" ng-model="saveId"/> 
 
                 </div>
                 <div="col-sm-1"></div>
