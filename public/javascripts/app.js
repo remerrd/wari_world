@@ -12,7 +12,7 @@ function mainCtrl($scope,$http){
 
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
-		if ($scope.input = "quit"){
+		if ($scope.input == "quit"){
 
 			$scope.getChoices();
 
