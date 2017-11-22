@@ -35,6 +35,7 @@ function mainCtrl($scope,$http){
 						$scope.optionIndex=0;
 						$scope.$apply()
 					});
+					$scope.input = '';
 				}
 
 				
@@ -58,7 +59,7 @@ function mainCtrl($scope,$http){
 
 	$scope.postChoice = function(){
 		console.log("What path?: ")
-		console.log($scope.nextIndex);
+		console.log($scope.optionIndex);
 
 		var newChoice = {
 			title: $scope.title,
@@ -68,6 +69,9 @@ function mainCtrl($scope,$http){
 			currentIndex: $scope.currentIndex,
 			nextIndex: $scope.optionIndex
 		};
+		$scope.title = '';
+		$scope.options = '';
+		$scope.desc = '';
 
 		for (let i = 0; i < newChoice.options.length;i++){
 			newChoice.paths.push("0");
@@ -83,6 +87,8 @@ function mainCtrl($scope,$http){
 			data: JSON.stringify(newChoice),
 			contentType: "application/json; charset=utf-8",
 			success: function(data,textStatus) {
+				console.log("Posted")
+				$scope.chooseChoice();
 				$scope.$apply()
 			}
 		})
