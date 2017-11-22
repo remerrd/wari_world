@@ -73,26 +73,19 @@ router.post('/world', function(req,res){
   console.log("index: " + req.body.nextIndex);
 
   var id = req.body.currentIndex
-  var nextId = req.body.nextIndex
+  var index = req.body.nextIndex
   
   Choice.find({_id:id},function(err,me){}).then(function(err,me){
     if (err) return console.error(err);
-    
+    console.log("Updating...");
     console.log(me);
 
-    for (let i = 0; i < me.paths.length; i++){
-      console.log(me.paths);
-      if (i == nextIndex){
-        me.paths[i] = new_choice._id;
-      }
-      Choice.update(
-        {_id:id},
-        {$set : {"me.paths": me.paths}},function(err, me){
-          console.log(err);
-          console.log("NEW");
-          console.log(me);
-        })
-    }
+    console.log(me.paths[index])
+    me.paths[index] = new_choice._id;
+    console.log(me.paths[index])
+
+    
+    
   })
 
   new_choice.save(function(err,post){
