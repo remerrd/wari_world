@@ -12,9 +12,9 @@ function mainCtrl($scope,$http){
 		$.getJSON('world',function(data){
 			console.log(data);
 
-			for (var choice in data){
-				$scope.world.push(choice);
-			}
+			
+			$scope.world = data;
+			
 		})
 	}
 
