@@ -38,7 +38,7 @@ function mainCtrl($scope,$http){
 			data: JSON.stringify(newChoice),
 			contentType: "application/json; charset=utf-8",
 			success: function(data,textStatus) {
-				$("#done").html(textStatus);
+				
 			}
 		})
 	}

@@ -61,8 +61,6 @@ router.post('/world', function(req,res){
     console.log(post);
     res.sendStatus(200);
   })
-  
-  res.end('{"success" : "Updated Successfully", "status" : 200}');
 });
 
 
