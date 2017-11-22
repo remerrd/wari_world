@@ -11,7 +11,7 @@ function mainCtrl($scope,$http){
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
-			if($scope.input.search($scope.currentChoice.options[i])){
+			if($scope.input.search($scope.currentChoice.options[i]) > 0){
 				console.log($scope.currentChoice.options[i]);
 			}
 		}
