@@ -25,12 +25,11 @@ function mainCtrl($scope,$http){
 					$scope.nextIndex = "0";
 				}
 				else{
-					$.getJSON('world/' + $scope.currentChoice.paths[i], function(nextChoice){}).then(function(firstChoice){
+					$.getJSON('world/' + $scope.currentChoice.paths[i], function(nextChoice){
 						console.log(nextChoice);
 						$scope.currentChoice = nextChoice;
 						$scope.currentIndex = nextChoice._id;
-						
-					})
+					});
 				}
 
 				
