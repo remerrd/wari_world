@@ -10,8 +10,10 @@ function mainCtrl($scope,$http){
 	
 	$scope.getChoices = function(){
 		$.getJSON('choice',function(data){
-			console.log(data){
-				
+			console.log(data);
+
+			for (var choice in data){
+				$scope.world.push(choice);
 			}
 		})
 	}
