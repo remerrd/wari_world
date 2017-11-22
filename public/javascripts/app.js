@@ -17,7 +17,8 @@ function mainCtrl($scope,$http){
 		}
 	}
 	
-	$scope.getChoices = function(){
+	$scope.getChoices = function(userInput){
+		$scope.input = userInput;
 		$.getJSON('world',function(data){}).then(function(data){
 			console.log(data);
 			$scope.currentIndex = data;
