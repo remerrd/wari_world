@@ -41,7 +41,8 @@
                     <p>{{currentChoice.desc}} </p>
                     <p ng-repeat="option in currentChoice.options">{{option}}</p>
                     <input type="text" class="form-control" ng-model="userInput"/>
-                    <button type="submit" class="btn btn-primary">Choose</button>
+                    {{userInput}}
+		    <button type="submit" class="btn btn-primary">Choose</button>
                 </form>
             </div>
             <div="col-sm-1"></div>

@@ -9,6 +9,7 @@ function mainCtrl($scope,$http){
 	$scope.nextIndex = "";
 
 	$scope.chooseChoice = function(){
+		console.log($scope.userInput);
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
 			if($scope.userInput.search($scope.currentChoice.options[i])){
 				console.log($scope.currentChoice.options[i]);
