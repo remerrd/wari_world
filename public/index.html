@@ -20,7 +20,7 @@
         <div class="row">
             <div="col-sm-1"></div>
             <div="col-sm-10">
-                <form ng-if="currentIndex=='0'" class="form-group" ng-submit="postChoice()" id="border">
+                <form ng-show="currentIndex=='0'" class="form-group" ng-submit="postChoice()" id="border">
                     <h3>Title: </h3>
                     <input type="text" class="form-control" ng-model="title"/>
                     <h3>Situation: </h3>
@@ -36,11 +36,11 @@
         <div class="row">
             <div="col-sm-1"></div>
             <div="col-sm-10">
-                <form ng-if="currentChoice" class="form-group" ng-submit="chooseChoice(userInput)" id="border">
+                <form ng-show="currentChoice" class="form-group" ng-submit="chooseChoice(userInput)" id="border">
                     <h3>Title: {{currentChoice.title}}</h3>
                     <p>{{currentChoice.desc}} </p>
                     <p ng-repeat="option in currentChoice.options">{{option}}</p>
-                    <input type="text" class="form-control" ng-model="userInput"/>
+                    <input type="text" class="form-control" ng-model="input"/>
                     {{input}}
 		    <button type="submit" class="btn btn-primary">Choose</button>
                 </form>
