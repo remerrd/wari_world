@@ -44,7 +44,7 @@
                 <form  class="form-group" ng-submit="chooseChoice(userInput)">
                     <h3>Title: {{currentChoice.title}}</h3>
                     <p>{{currentChoice.desc}}</p>
-                    <span ng-repeat="option in currentChoice.options">{{option}}</span>
+                    <span ng-repeat="option in currentChoice.options"> [{{option}}] </span>
                     <input type="text" class="form-control" ng-model="input"/>
                     {{input}}
 		    <button type="submit" class="btn btn-primary">Choose</button>
