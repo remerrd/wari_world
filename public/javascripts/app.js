@@ -76,6 +76,7 @@ function mainCtrl($scope,$http){
 		$scope.title = '';
 		$scope.options = '';
 		$scope.desc = '';
+		$scope.nextIndex = "";
 
 		for (let i = 0; i < newChoice.options.length;i++){
 			newChoice.paths.push("0");
