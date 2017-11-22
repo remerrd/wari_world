@@ -74,8 +74,16 @@ router.post('/world', function(req,res){
   console.log("id: " + req.body.currentIndex);
 
   var id = req.body.currentIndex
+  var nextId = req.body.nextIndex
   
-  //Choice.updateOne({"_id" : id}, {})
+  Choice.update({"_id" : id},{$set:{'paths.' + nextId + '.content' : new_choice:_id}})
+
+  update(
+    {"heros.nickname": "test"}, 
+    {$set: {
+        "heros.$.items.1": "new_value"
+    }}
+
 
 
   new_choice.save(function(err,post){

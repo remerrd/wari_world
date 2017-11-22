@@ -18,6 +18,7 @@ function mainCtrl($scope,$http){
 				console.log($scope.currentChoice.paths[i]);
 				console.log("DONE!");
 
+				$scope.nextIndex = $scope.currentChoice.paths[i]
 
 				if ($scope.currentChoice.paths[i] == "0")
 				{
@@ -57,7 +58,8 @@ function mainCtrl($scope,$http){
 			desc: $scope.desc,
 			options: $scope.options.toLowerCase().split(','),
 			paths: [],
-			currentIndex: $scope.currentIndex
+			currentIndex: $scope.currentIndex,
+			nextIndex: $scope.nextIndex
 		};
 
 		for (let i = 0; i < newChoice.options.length;i++){
