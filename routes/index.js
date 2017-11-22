@@ -79,8 +79,6 @@ router.post('/world', function(req,res){
     if (err) return console.error(err);
     
     console.log(me);
-    console.log(me.paths);
-    console.log(me["paths"]);
 
     for (let i = 0; i < me.paths.length; i++){
       console.log(me.paths);
@@ -91,6 +89,8 @@ router.post('/world', function(req,res){
         {_id:id},
         {$set : {"me.paths": me.paths}},function(err, me){
           console.log(err);
+          console.log("NEW");
+          console.log(me);
         })
     }
   })
