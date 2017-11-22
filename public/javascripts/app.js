@@ -13,6 +13,8 @@ function mainCtrl($scope,$http){
 
 	$scope.chooseChoice = function(){
 		console.log($scope.input);
+		$scope.input = $scope.input.toLowerCase();
+
 		if ($scope.input == "quit" || $scope.input == "end"){
 			$scope.getChoices("");
 			$scope.input = '';
