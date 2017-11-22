@@ -10,8 +10,8 @@ function mainCtrl($scope,$http){
 	$scope.createInfo = "";
 
 	$scope.createInfo = function(){
-		if (scope.createInfo == ""){
-			scope.createInfo = `
+		if ($scope.createInfo == ""){
+			$scope.createInfo = `
 			You are the first person to have chosen this, now its up to you to continue the story. To do this fill out the information below.
 			Have a title for the situation, then describe the situation and possible choices, last give key words the user will need to type seperated by a ",".
 			
@@ -19,10 +19,10 @@ function mainCtrl($scope,$http){
 			1) include a transition from where you are comming from (last area will be displayed below)
 			2) use as much detail as you can, so people can live the story
 			3) if you have played on other outcomes, reference people and places from other paths
-			`
+			`;
 		}
 		else{
-			scope.createInfo = ""
+			$scope.createInfo = "";
 		}
 	}
 

@@ -20,9 +20,8 @@
         <div ng-show="nextIndex=='0'" class="row" id="border">
             <div class="col-sm-1"></div>
             <div class="col-sm-10" >
-                
+                <h3>Create:</h3> <button class="btn" ng-click="createInfo()">Info/Help</button>
                 <form  class="form-group" ng-submit="postChoice()">
-                    <h3>Create:</h3> <button class="btn" ng-click="createInfo()">Info/Help</button>
                     <p>{{createInfo}}</p>
                     <h3>Title: </h3>
                     <input type="text" class="form-control" ng-model="title"/>
@@ -45,6 +44,7 @@
                     <h3>Title: {{currentChoice.title}}</h3>
                     <p>{{currentChoice.desc}}</p>
                     <span ng-repeat="option in currentChoice.options"> [{{option}}] </span>
+                    <p></p>
                     <input type="text" class="form-control" ng-model="input"/>
 		    <button type="submit" class="btn btn-primary">Choose</button>
                 </form>
