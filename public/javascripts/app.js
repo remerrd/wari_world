@@ -12,6 +12,11 @@ function mainCtrl($scope,$http){
 		$.getJSON('world',function(data){
 			console.log(data);
 			$scope.world = data;
+
+			 $.getJSON('world/' + data, function(firstChoice){
+				console.log(firstChoice);
+				$scope.jsonChoice = firstChoice;
+			})
 		})
 	}
 
@@ -38,7 +43,7 @@ function mainCtrl($scope,$http){
 			data: JSON.stringify(newChoice),
 			contentType: "application/json; charset=utf-8",
 			success: function(data,textStatus) {
-				
+		
 			}
 		})
 	}
