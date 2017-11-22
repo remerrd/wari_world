@@ -42,6 +42,7 @@ router.get('/world', function(req, res) {
 router.post('/world', function(req,res){
   console.log("In post world")
   //put choice in db
+  
 
   var new_choice = new Choice({
     title: req.body.title,
@@ -50,6 +51,7 @@ router.post('/world', function(req,res){
     paths: req.body.paths,
   });
   console.log(new_choice);
+  console.log("id: " + req.body.currentIndex);
 
   new_choice.save(function(err,post){
     if (err) return console.error(err);
