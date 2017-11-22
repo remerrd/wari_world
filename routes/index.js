@@ -50,7 +50,7 @@ router.get('/world', function(req, res) {
   Choice.find(function(err,choiceList){
     if (err) return console.error(err);
     else{
-      console.log(choiceList);
+      //console.log(choiceList);
       res.json(choiceList[0]._id);
       world = choiceList;
     }
@@ -87,6 +87,7 @@ router.post('/world', function(req,res){
 
     Choice.updateOne({_id:id}, new_me, function(err, res){
       console.log("FINALLY!");
+      console.log(res);
     })
 
   })
