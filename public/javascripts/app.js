@@ -53,6 +53,9 @@ function mainCtrl($scope,$http){
 	}
 
 	$scope.postChoice = function(){
+		console.log("What path?: ")
+		console.log($scope.nextIndex);
+
 		var newChoice = {
 			title: $scope.title,
 			desc: $scope.desc,
