@@ -51,12 +51,24 @@ router.post('/world', function(req,res){
     console.log(post);
     res.sendStatus(200);
   })
-
-  
-  last_choice = req.body;
   
   res.end('{"success" : "Updated Successfully", "status" : 200}');
 });
+
+
+router.param('choice',function(req,res,next,id){
+  var query = Choice.findById(id);
+  query.exec(function(err,choice){
+    if(err) {return next(err);}
+    if(!choice){return next(new Error("can't find choice"))}
+    req.choice = choice;
+    return next();
+  })
+})
+
+router.get('/world/:choice',function(req,res){
+  res.json(req.choice);
+})
 
 module.exports = router;
 
