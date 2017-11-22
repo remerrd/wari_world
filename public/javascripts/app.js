@@ -29,6 +29,7 @@ function mainCtrl($scope,$http){
 						console.log(nextChoice);
 						$scope.currentChoice = nextChoice;
 						$scope.currentIndex = nextChoice._id;
+						$scope.nextIndex="";
 						$scope.$apply()
 					});
 				}
@@ -47,6 +48,7 @@ function mainCtrl($scope,$http){
 			 $.getJSON('world/' + data, function(firstChoice){}).then(function(firstChoice){
 				console.log(firstChoice);
 				$scope.currentChoice = firstChoice;
+				$scope.$apply()
 			})
 		})
 	}
