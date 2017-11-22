@@ -78,7 +78,7 @@ router.post('/world', function(req,res){
   Choice.find({_id:id},function(err,me){
     if (err) return console.error(err);
     console.log("Updating...");
-    var new_me = me;
+    var new_me = JSON.parse(JSON.stringify(me));
     console.log(new_me);
 
     console.log(new_me.paths[index])
