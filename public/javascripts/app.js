@@ -11,10 +11,7 @@ function mainCtrl($scope,$http){
 	$scope.getChoices = function(){
 		$.getJSON('world',function(data){
 			console.log(data);
-
-			
 			$scope.world = data;
-			
 		})
 	}
 
@@ -23,7 +20,8 @@ function mainCtrl($scope,$http){
 			title: $scope.title,
 			desc: $scope.desc,
 			options: $scope.options.toLowerCase().split(','),
-			paths: []
+			paths: [],
+			currentIndex: $scope.currentIndex
 		};
 
 		for (let i = 0; i < newChoice.options.length;i++){

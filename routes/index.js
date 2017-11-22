@@ -43,7 +43,12 @@ router.post('/world', function(req,res){
   console.log("In post world")
   //put choice in db
 
-  var new_choice = new Choice(req.body);
+  var new_choice = new Choice({
+    title: req.body.title,
+    desc: req.body.desc,
+    options: req.body.options,
+    paths: req.body.paths,
+  });
   console.log(new_choice);
 
   new_choice.save(function(err,post){
@@ -69,6 +74,30 @@ router.param('choice',function(req,res,next,id){
 router.get('/world/:choice',function(req,res){
   res.json(req.choice);
 })
+
+router.delete('/world/:choice',function(req,res){
+  console.log("Deleting Choice");
+
+  deleteRec(req.choice);
+  res.sendStatus(200);
+})
+
+var deleteRec = function(choice){
+    for(let i = 0; i < choice.paths.length;i++){
+      if (choice.path[i] != 0);
+      {
+        var id = choice.path[i];
+        var query = Choice.findById(id);
+        query.exec(function(err,next_choice){
+          if(err) {return next(err);}
+          if(!next_choice){return next(new Error("can't find choice"))}
+          console.log("Rec Delete "+ id);
+          deleteRec(next_choice);
+        });
+      }
+    }
+    choice.remove();
+}
 
 module.exports = router;
 
