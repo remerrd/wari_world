@@ -29,6 +29,21 @@ router.get('/', function(req, res, next) {
   res.sendFile('index', { title: 'public' });
 });
 
+router.get('/worldlist', function(req, res) {
+  console.log("In get worldlist");
+
+  Choice.find(function(err,choiceList){
+    if (err) return console.error(err);
+    else{
+      console.log(choiceList);
+      res.json(choiceList);
+      world = choiceList;
+    }
+  })
+
+  
+});
+
 router.get('/world', function(req, res) {
   console.log("In get world");
 
