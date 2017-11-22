@@ -87,6 +87,7 @@ router.delete('/world/:choice',function(req,res){
 var deleteRec = function(choice){
     console.log("CHOICE" + choice);
     for(let i = 0; i < choice.paths.length;i++){
+      console.log("" + i);
       if (choice.path[i] != 0);
       {
         var id = choice.path[i];
