@@ -78,11 +78,12 @@ router.post('/world', function(req,res){
   Choice.find({_id:id},function(err,me){}).then(function(err,me){
     if (err) return console.error(err);
     console.log("Updating...");
-    console.log(me);
+    var new_me = me;
+    console.log(new_me);
 
-    console.log(me.paths[index])
-    me.paths[index] = new_choice._id;
-    console.log(me.paths[index])
+    console.log(new_me.paths[index])
+    new_me.paths[index] = new_choice._id;
+    console.log(new_me.paths[index])
 
     
     
