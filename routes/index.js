@@ -29,17 +29,16 @@ router.get('/', function(req, res, next) {
 
 router.get('/world', function(req, res) {
   console.log("In get world");
-  var world;
 
   Choice.find(function(err,choiceList){
     if (err) return console.error(err);
     else{
       console.log(choiceList);
-      world = choiceList;
+      res.json(choiceList);
     }
   })
 
-  return res.json(world);
+  
 });
 
 router.post('/world', function(req,res){
@@ -86,6 +85,7 @@ router.delete('/world/:choice',function(req,res){
 })
 
 var deleteRec = function(choice){
+    console.log("CHOICE" + choice);
     for(let i = 0; i < choice.paths.length;i++){
       if (choice.path[i] != 0);
       {
