@@ -78,8 +78,10 @@ router.post('/world', function(req,res){
   Choice.find({_id:id},function(err,me){
     if (err) return;
     console.log(me);
+    console.log(me.paths);
 
     for (let i = 0; i < me.paths.length; i++){
+      console.log(i);
       if (i == nextIndex){
         me.paths[i] = new_choice._id;
       }
