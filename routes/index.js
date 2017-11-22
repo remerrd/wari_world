@@ -34,6 +34,7 @@ router.get('/world', function(req, res) {
     if (err) return console.error(err);
     else{
       console.log(choiceList);
+      res.end(choiceList);
     }
   })
 });
