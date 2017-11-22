@@ -62,8 +62,6 @@ router.get('/world', function(req, res) {
 router.post('/world', function(req,res){
   console.log("In post world")
   //put choice in db
-  
-
   var new_choice = new Choice({
     title: req.body.title,
     desc: req.body.desc,
@@ -72,22 +70,26 @@ router.post('/world', function(req,res){
   });
   console.log(new_choice);
   console.log("id: " + req.body.currentIndex);
+  console.log("index: " + req.body.nextIndex);
 
   var id = req.body.currentIndex
   var nextId = req.body.nextIndex
   
-  Choice.update(
-    {_id : id, paths.1 : 1},
-    { $set: {"paths.$.content" : nextId}});
-  
-
-  
-
-
+  Choice.find({_id:id},function(err,me){
+    for (let i = 0; i < me.paths.length; i++){
+      if (i == nextIndex){
+        me.paths[i] = new_choice._id;
+      }
+      Choice.update(
+        {_id:id},
+        {$set : {"me.paths": me.paths}},function(err, me){
+          console.log(err);
+        })
+    }
+  })
 
   new_choice.save(function(err,post){
     if (err) return console.error(err);
-    console.log(post);
     res.sendStatus(200);
   })
 });

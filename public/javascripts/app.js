@@ -18,7 +18,7 @@ function mainCtrl($scope,$http){
 				console.log($scope.currentChoice.paths[i]);
 				console.log("DONE!");
 
-				$scope.nextIndex = $scope.currentChoice.paths[i]
+				$scope.nextIndex = i;
 
 				if ($scope.currentChoice.paths[i] == "0")
 				{
