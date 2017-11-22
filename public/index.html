@@ -43,8 +43,8 @@
             <div class="col-sm-10">
                 <form  class="form-group" ng-submit="chooseChoice(userInput)">
                     <h3>Title: {{currentChoice.title}}</h3>
-                    <span>[{{currentChoice.desc}}]</span>
-                    <p ng-repeat="option in currentChoice.options">{{option}}</p>
+                    <p>{{currentChoice.desc}}</p>
+                    <span ng-repeat="option in currentChoice.options">{{option}}</span>
                     <input type="text" class="form-control" ng-model="input"/>
                     {{input}}
 		    <button type="submit" class="btn btn-primary">Choose</button>
