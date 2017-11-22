@@ -76,13 +76,12 @@ router.post('/world', function(req,res){
   var id = req.body.currentIndex
   var nextId = req.body.nextIndex
   
-  Choice.update({"_id" : id},{$set:{'paths.' + nextId + '.content' : new_choice:_id}})
+  Choice.update(
+    {_id : id, paths.1 : 1},
+    { $set: {"paths.$.content" : nextId}});
+  
 
-  update(
-    {"heros.nickname": "test"}, 
-    {$set: {
-        "heros.$.items.1": "new_value"
-    }}
+  
 
 
 
