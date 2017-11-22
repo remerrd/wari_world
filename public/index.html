@@ -17,7 +17,7 @@
             <h1>Wari-World</h1>
         </div>
 
-        <div class="row" id="border">
+        <div ng-show="nextIndex=='0'" class="row" id="border">
             <div class="col-sm-1"></div>
             <div class="col-sm-10" >
                 
@@ -38,7 +38,7 @@
             <div="col-sm-1"></div>
         </div>
 
-        <div class="row" id="border">
+        <div ng-show="currentChoice" class="row" id="border">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
                 <form  class="form-group" ng-submit="chooseChoice(userInput)">
@@ -53,9 +53,9 @@
             <div="col-sm-1"></div>
         </div>
 
-        <div class="row" id="border">
+        <div ng-show="!currentChoice" class="row" id="border">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-10" ng-if="!currentChoice">
+                <div class="col-sm-10">
                     
                     <h2>Welcome to Wari-World!</h2>
 
