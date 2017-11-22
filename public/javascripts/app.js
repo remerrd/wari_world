@@ -15,18 +15,16 @@ function mainCtrl($scope,$http){
 				
 				console.log($scope.currentChoice);
 				console.log(i);
-				console.log($scope.currentChoice.path[i]);
+				console.log($scope.currentChoice.paths[i]);
 				console.log("DONE!");
 
-				$scope.nextIndex = $scope.currentChoice.path[i];
 
-
-				if ($scope.currentChoice.path[i] == "0")
+				if ($scope.currentChoice.paths[i] == "0")
 				{
 					$scope.nextIndex = "0";
 				}
 				else{
-					$.getJSON('world/' + $scope.currentChoice.path[i], function(nextChoice){}).then(function(firstChoice){
+					$.getJSON('world/' + $scope.currentChoice.paths[i], function(nextChoice){}).then(function(firstChoice){
 						console.log(newChoice);
 						$scope.currentChoice = nextChoice;
 						$scope.currentIndex = nextChoice._id;
