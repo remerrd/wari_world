@@ -10,9 +10,7 @@ function mainCtrl($scope,$http){
 
 	$scope.chooseChoice = function(){
 		for (let i = 0; i < currentChoice.options.length; i++){
-			if ($scope.userInput.find(currentChoice.options[i]) != -1){
-				console.log(currentChoice.options[i]);
-			}
+			console.log(currentChoice.options[i]);
 		}
 	}
 	
