@@ -78,6 +78,8 @@ function mainCtrl($scope,$http){
 				$scope.$apply()
 			})
 		}
+
+		$scope.saveId = "";
 		
 		
 	}
