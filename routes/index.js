@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
 router.get('/world', function(req, res) {
   console.log("In get world");
 
-  Choice.find(function(err,choiceList){
+  Choice.find({},function(err,choiceList){
     if (err) return console.error(err);
     else{
       console.log(choiceList);
