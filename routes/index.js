@@ -10,10 +10,12 @@ var choiceSchema = mongoose.Schema({
   title: String,
   desc: String,
   options: [String],
-  paths: [Number]
+  paths: [String]
 })
 
 var Choice = mongoose.model('Choice',choiceSchema);
+
+var world = 0;
 
 //test connection
 var db = mongoose.connection; //Saves the connection as a variable to use
@@ -35,6 +37,7 @@ router.get('/world', function(req, res) {
     else{
       console.log(choiceList);
       res.json(choiceList);
+      world = choiceList;
     }
   })
 
@@ -54,6 +57,7 @@ router.post('/world', function(req,res){
   });
   console.log(new_choice);
   console.log("id: " + req.body.currentIndex);
+
 
   new_choice.save(function(err,post){
     if (err) return console.error(err);
@@ -85,7 +89,7 @@ router.delete('/world/:choice',function(req,res){
     console.log("CHOICE" + choice);
     for (let i = 0; i < choice.paths.length; i++){
       console.log(i);
-      if (choice.paths[i] != 0){
+      if (choice.paths[i] != "0"){
         var query = Choice.findById(id);
           query.exec(function(err,next_choice){
             if (err) return;

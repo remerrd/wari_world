@@ -5,7 +5,7 @@ app.controller('mainCtrl',mainCtrl);
 function mainCtrl($scope,$http){
 	$scope.currentChoice = {};
 	$scope.world = [];
-	$scope.currentIndex = 0;
+	$scope.currentIndex = "5a14db6d3995342ce30ae364";
 	$scope.nextIndex = 0;
 	
 	$scope.getChoices = function(){
@@ -25,7 +25,7 @@ function mainCtrl($scope,$http){
 		};
 
 		for (let i = 0; i < newChoice.options.length;i++){
-			newChoice.paths.push(0);
+			newChoice.paths.push("0");
 			newChoice.options[i] = newChoice.options[i].trim();
 		}
 
