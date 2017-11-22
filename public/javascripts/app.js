@@ -13,6 +13,24 @@ function mainCtrl($scope,$http){
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
 			if($scope.input.search($scope.currentChoice.options[i]) > 0){
 				console.log($scope.currentChoice.options[i]);
+				//connect to path
+				$scope.nextIndex = $scope.currentChoice.path[i];
+
+				if ($scope.currentChoice.path[i] == "0")
+				{
+					$scope.nextIndex = "0";
+				}
+				else{
+					$.getJSON('world/' + $scope.currentChoice.path[i], function(nextChoice){}).then(function(firstChoice){
+						console.log(newChoice);
+						$scope.currentChoice = nextChoice;
+						$scope.currentIndex = nextChoice._id;
+						$scope.apply();
+					})
+				}
+
+				
+
 			}
 		}
 	}
