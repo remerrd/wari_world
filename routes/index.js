@@ -85,6 +85,10 @@ router.post('/world', function(req,res){
     new_me[0].paths[index] = new_choice._id;
     console.log(new_me[0].paths[index])
 
+    Choice.updateOne({_id:id}, new_me, function(err, res){
+      console.log("FINALLY!");
+    })
+
   })
 
   new_choice.save(function(err,post){
