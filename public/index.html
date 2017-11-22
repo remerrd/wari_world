@@ -29,12 +29,26 @@
                     <input type="text" class="form-control" ng-model="options">
                     <button type="submit" class="btn btn-primary">Create</button>
                 </form>
-                {{jsonChoice}}
-                <button ng-click="getChoices()">GET</button>
-                {{world}}
             </div>
             <div="col-sm-1"></div>
         </div>
+
+        <div class="row">
+                <div="col-sm-1"></div>
+                <div="col-sm-10">
+                    <form class="form-group" ng-submit="chooseChoice()">
+                        <h3>Title: {{currentChoice.title}}</h3>
+                        <p>{{currentChoice.desc}} </p>
+                        <p ng-repeat="option in currentChoice.options">{{option}} </p>
+                        <input type="text" class="form-control" ng-model="userInput">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                    {{jsonChoice}}
+                    <button ng-click="getChoices()">GET</button>
+                    {{world}}
+                </div>
+                <div="col-sm-1"></div>
+            </div>
     </body>
 
 

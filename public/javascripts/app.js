@@ -5,17 +5,17 @@ app.controller('mainCtrl',mainCtrl);
 function mainCtrl($scope,$http){
 	$scope.currentChoice = {};
 	$scope.world = [];
-	$scope.currentIndex = "5a14db6d3995342ce30ae364";
+	$scope.currentIndex = "";
 	$scope.nextIndex = 0;
 	
 	$scope.getChoices = function(){
 		$.getJSON('world',function(data){
 			console.log(data);
-			$scope.world = data;
+			$scope.currentIndex = data;
 
 			 $.getJSON('world/' + data, function(firstChoice){
 				console.log(firstChoice);
-				$scope.jsonChoice = firstChoice;
+				$scope.currentChoice = firstChoice;
 			})
 		})
 	}
