@@ -26,7 +26,7 @@ function mainCtrl($scope,$http){
 				}
 				else{
 					$.getJSON('world/' + $scope.currentChoice.paths[i], function(nextChoice){}).then(function(firstChoice){
-						console.log(newChoice);
+						console.log(nextChoice);
 						$scope.currentChoice = nextChoice;
 						$scope.currentIndex = nextChoice._id;
 						
@@ -40,7 +40,6 @@ function mainCtrl($scope,$http){
 	}
 	
 	$scope.getChoices = function(userInput){
-		$scope.input = userInput;
 		$.getJSON('world',function(data){}).then(function(data){
 			console.log(data);
 			$scope.currentIndex = data;
@@ -79,7 +78,7 @@ function mainCtrl($scope,$http){
 			data: JSON.stringify(newChoice),
 			contentType: "application/json; charset=utf-8",
 			success: function(data,textStatus) {
-				$scope.getChoices();
+				
 			}
 		})
 	}
