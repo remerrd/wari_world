@@ -22,7 +22,6 @@ db.once('open', function() { //Lets us know when we're connected
 console.log('Connected');
 });
 
-var last_choice = {};
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.sendFile('index', { title: 'public' });
@@ -37,8 +36,6 @@ router.get('/world', function(req, res) {
       console.log(choiceList);
     }
   })
-
-  res.send(last_choice);
 });
 
 router.post('/world', function(req,res){
