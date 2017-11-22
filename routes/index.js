@@ -90,14 +90,7 @@ var deleteRec = function(choice){
       console.log("" + i);
       if (choice.path[i] != 0);
       {
-        var id = choice.path[i];
-        var query = Choice.findById(id);
-        query.exec(function(err,next_choice){
-          if(err) {return next(err);}
-          if(!next_choice){return next(new Error("can't find choice"))}
-          console.log("Rec Delete "+ id);
-          deleteRec(next_choice);
-        });
+        console.log("needs to delete deeper")
       }
     }
     choice.remove();
