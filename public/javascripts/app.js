@@ -20,6 +20,7 @@ function mainCtrl($scope,$http){
 			 $.getJSON('world/' + data, function(firstChoice){}).then(function(firstChoice){
 				console.log(firstChoice);
 				$scope.currentChoice = firstChoice;
+				$scope.apply();
 			})
 		})
 	}
