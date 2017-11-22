@@ -9,7 +9,7 @@ function mainCtrl($scope,$http){
 	$scope.nextIndex = 0;
 	
 	$scope.getChoices = function(){
-		$.getJSON('choice',function(data){
+		$.getJSON('world',function(data){
 			console.log(data);
 
 			for (var choice in data){
