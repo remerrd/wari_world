@@ -86,14 +86,17 @@ router.delete('/world/:choice',function(req,res){
 
 var deleteRec = function(choice){
     console.log("CHOICE" + choice);
-    for(let i = 0; i < choice.paths.length;i++){
-      console.log("" + i);
-      if (choice.path[i] != 0);
-      {
-        console.log("needs to delete deeper")
-      }
-    }
-    choice.remove();
+    for (let i = 0; i < choice.paths.length; i++){
+        console.log(i);
+	if (choice.paths[i] != 0){
+     	    var query = Choice.findById(id);
+	    query.exec(function(err,next_choice){
+		if (err) return;
+		if (!next_choice) return;
+		deleteRec(next_choice);
+ 	    } 
+	}
+    }	
 }
 
 module.exports = router;
