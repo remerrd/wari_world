@@ -79,9 +79,10 @@ router.post('/world', function(req,res){
     if (err) return;
     console.log(me);
     console.log(me.paths);
+    console.log(me["paths"]);
 
     for (let i = 0; i < me.paths.length; i++){
-      console.log(i);
+      console.log(me.paths);
       if (i == nextIndex){
         me.paths[i] = new_choice._id;
       }
