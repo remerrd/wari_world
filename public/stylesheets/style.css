@@ -27,6 +27,9 @@ h1{
   border: 5px solid black;
   border-radius: 10px;
 }
+#save{
+  color:lightslategray;
+}
 .row{
   background-color: whitesmoke;
 }
