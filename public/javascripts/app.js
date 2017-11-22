@@ -14,11 +14,12 @@ function mainCtrl($scope,$http){
 			if($scope.input.indexOf($scope.currentChoice.options[i]) > -1){
 				
 				console.log($scope.currentChoice);
+				console.log(i);
+				console.log($scope.currentChoice.path[i]);
+				console.log("DONE!");
 
 				$scope.nextIndex = $scope.currentChoice.path[i];
 
-				
-				console.log($scope.currentChoice.options[i] + ":" + $scope.nextIndex);
 
 				if ($scope.currentChoice.path[i] == "0")
 				{
