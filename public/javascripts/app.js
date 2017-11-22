@@ -12,7 +12,7 @@ function mainCtrl($scope,$http){
 		console.log($scope.input);
 		console.log($scope.currentChoice);
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
-			if($scope.input.search($scope.currentChoice.options[i]) > 0){
+			if($scope.input.indexOf($scope.currentChoice.options[i]) > -1){
 				
 				console.log("this?" + $scope.currentChoice);
 
