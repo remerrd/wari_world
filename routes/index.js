@@ -48,7 +48,7 @@ router.get('/world', function(req, res) {
   console.log("In get world");
 
   Choice.find(function(err,choiceList){
-    if (err) return console.error(err);
+    if (err) {return console.error(err);}
     else{
       //console.log(choiceList);
       res.json(choiceList[0]._id);
@@ -94,17 +94,6 @@ router.post('/world', function(req,res){
 
     })
   }
-
-  var new_choice = new Choice({
-    title: "The Crossroad",
-    desc: `You open your eyes and find yourself at a crossroad of two dirt roads
-    To the North you see a great mountain range with snow at the top of the peaks.
-    To the East you see a forest filled with life with a mysterious aura.
-    To the West you see a great Medieval Castle, with the farmland and homes along the path.
-    To the South you see a coastline with a large boat in the distance. Where would you like to go?`,
-    options: ["north","east","south","west"],
-    paths: ["0","0","0","0"],
-  });
 
   new_choice.save(function(err,post){
     if (err) return console.error(err);
