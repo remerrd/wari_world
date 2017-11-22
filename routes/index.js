@@ -76,7 +76,8 @@ router.post('/world', function(req,res){
   var nextId = req.body.nextIndex
   
   Choice.find({_id:id},function(err,me){}).then(function(err,me){
-    if (err) return;
+    if (err) return console.error(err);
+    
     console.log(me);
     console.log(me.paths);
     console.log(me["paths"]);
@@ -92,11 +93,11 @@ router.post('/world', function(req,res){
           console.log(err);
         })
     }
+  })
 
-    new_choice.save(function(err,post){
-      if (err) return console.error(err);
-      res.sendStatus(200);
-    })
+  new_choice.save(function(err,post){
+    if (err) return console.error(err);
+    res.sendStatus(200);
   })
 
   
