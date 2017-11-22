@@ -55,7 +55,6 @@
         <div ng-show="currentChoice" class="row" id="border">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                <p>Save Id: {{currentChoice._id}}</p>
                 <form  class="form-group" ng-submit="chooseChoice(userInput)">
                     <h3>{{currentChoice.title}}</h3>
                     <p>{{currentChoice.desc}}</p>
@@ -64,6 +63,7 @@
                     <input type="text" class="form-control" ng-model="input"/>
 		    <button type="submit" class="btn btn-primary">Choose</button>
                 </form>
+                <p id="border">Save Id: {{currentChoice._id}}</p>
             </div>
             <div="col-sm-1"></div>
         </div>
