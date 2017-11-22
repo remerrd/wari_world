@@ -21,5 +21,16 @@ function mainCtrl($scope,$http){
 		}
 
 		$scope.jsonChoice = JSON.stringify(newChoice);
+
+		var url = "world";
+		$.ajax({
+			url:url,
+			type:"POST",
+			data: JSON.stringify(newChoice),
+			contentType: "application/json; charset=utf-8",
+			success: function(data,textStatus) {
+				$("#done").html(textStatus);
+			}
+		})
 	}
 }
