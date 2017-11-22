@@ -51,7 +51,7 @@ function mainCtrl($scope,$http){
 		$scope.saveId = loadId;
 
 		console.log("Loading Id...")
-		console.log($scpoe.saveId);
+		console.log($scope.saveId);
 		
 		if ($scope.saveId == ""){
 			$.getJSON('world',function(data){}).then(function(data){
