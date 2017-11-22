@@ -4,8 +4,17 @@ app.controller('mainCtrl',mainCtrl);
 
 function mainCtrl($scope,$http){
 	$scope.currentChoice = {};
+	$scope.world = [];
 	$scope.currentIndex = 0;
-	$scope.nextIndex = 0;	
+	$scope.nextIndex = 0;
+	
+	$scope.getChoices = function(){
+		$.getJSON('choice',function(data){
+			console.log(data){
+				
+			}
+		})
+	}
 
 	$scope.postChoice = function(){
 		var newChoice = {
