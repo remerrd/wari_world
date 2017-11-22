@@ -29,15 +29,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/world', function(req, res) {
   console.log("In get world");
+  var world;
 
   Choice.find(function(err,choiceList){
     if (err) return console.error(err);
     else{
       console.log(choiceList);
-      
-      return res.json(choiceList);;
+      world = choiceList;
     }
   })
+
+  return res.json(world);
 });
 
 router.post('/world', function(req,res){
