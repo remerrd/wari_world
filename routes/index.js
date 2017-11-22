@@ -75,7 +75,7 @@ router.post('/world', function(req,res){
   var id = req.body.currentIndex
   var index = req.body.nextIndex
   
-  Choice.find({_id:id},function(err,me){}).then(function(err,me){
+  Choice.find({_id:id},function(err,me){
     if (err) return console.error(err);
     console.log("Updating...");
     var new_me = me;
@@ -85,8 +85,6 @@ router.post('/world', function(req,res){
     new_me.paths[index] = new_choice._id;
     console.log(new_me.paths[index])
 
-    
-    
   })
 
   new_choice.save(function(err,post){
