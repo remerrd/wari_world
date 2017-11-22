@@ -13,9 +13,10 @@ function mainCtrl($scope,$http){
 		for (let i = 0; i < $scope.currentChoice.options.length; i++){
 			if($scope.input.search($scope.currentChoice.options[i]) > 0){
 				//connect to path
+				console.log($scope.currentChoice);
 				$scope.nextIndex = $scope.currentChoice.path[i];
 
-				console.log($scope.currentChoice);
+				
 				console.log($scope.currentChoice.options[i] + ":" + $scope.nextIndex);
 
 				if ($scope.currentChoice.path[i] == "0")
