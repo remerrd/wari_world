@@ -91,12 +91,13 @@ router.post('/world', function(req,res){
         {$set : {"me.paths": me.paths}},function(err, me){
           console.log(err);
         })
+    }
 
-        new_choice.save(function(err,post){
-          if (err) return console.error(err);
-          res.sendStatus(200);
-        })
-  }
+    new_choice.save(function(err,post){
+      if (err) return console.error(err);
+      res.sendStatus(200);
+    })
+  })
 
   
 });
