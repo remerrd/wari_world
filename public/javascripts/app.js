@@ -92,7 +92,7 @@ function mainCtrl($scope,$http){
 			contentType: "application/json; charset=utf-8",
 			success: function(data,textStatus) {
 				console.log("Posted")
-				$.getJSON('world/' + $scope.currentChoice.paths[$scope.optionIndex], function(nextChoice){
+				$.getJSON('world/' + $scope.currentChoice._id, function(nextChoice){
 					$scope.currentChoice = nextChoice;
 					console.log("NEXT CHOICE");
 					console.log($scope.currentChoice);
