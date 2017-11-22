@@ -7,13 +7,17 @@ function mainCtrl($scope,$http){
 	$scope.world = [];
 	$scope.currentIndex = "";
 	$scope.nextIndex = 0;
+
+	$scope.chooseChoice = function(){
+
+	}
 	
 	$scope.getChoices = function(){
-		$.getJSON('world',function(data){
+		$.getJSON('world',function(data){}).then(function(data){
 			console.log(data);
 			$scope.currentIndex = data;
 
-			 $.getJSON('world/' + data, function(firstChoice){
+			 $.getJSON('world/' + data, function(firstChoice){}).then(function(firstChoice){
 				console.log(firstChoice);
 				$scope.currentChoice = firstChoice;
 			})
