@@ -137,7 +137,7 @@ router.delete('/world/:choice',function(req,res){
     }
     console.log("Deleting: ");
     console.log(choice._id);
-    Choice.remove({"_id":ObjectId(choice._id)});
+    Choice.removeOne(choice);
     
   }
 
