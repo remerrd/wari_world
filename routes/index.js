@@ -134,7 +134,11 @@ router.delete('/world/:choice',function(req,res){
             deleteRec(next_choice);
             }); 
       }
-    }	
+    }
+    console.log("Deleting: ");
+    console.log(choice._id);
+    Choice.remove({"_id":ObjectId(choice._id)});
+    
   }
 
   deleteRec(req.choice);
